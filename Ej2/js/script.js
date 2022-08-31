@@ -15,4 +15,14 @@ function addImage(imgURL) {
   container.innerHTML += `<img src="${imgURL}"/>`; // Se concatena cada imagen al innerHTML del contenedor
 }
 
+
+btnAddImage.addEventListener('click', () => {
+    
+  fetch(DATA_URL)
+  .then(respuestaDelFetch => respuestaDelFetch.json())
+  .then(dataJsonString => {
+      addImage(dataJsonString.message);    
+  });
+
+});
 // Escribe el código necesario para añadir el evento click al botón que permita agregar perros al div de id "container"
